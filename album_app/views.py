@@ -23,7 +23,7 @@ def edit_album(request, album_id):
             form.save(commit=True)
             return redirect('home')
     context = {'form': form}
-    return render(request, './album_app/add_album.html', context)
+    return render(request, './album_app/edit_album.html', context)
 
 
 def delete_album(request, album_id):

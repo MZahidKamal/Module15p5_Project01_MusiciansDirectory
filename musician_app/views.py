@@ -23,7 +23,7 @@ def edit_musician(request, musician_id):
             form.save(commit=True)
             return redirect('home')
     context = {'form': form}
-    return render(request, './musician_app/add_musician.html', context)
+    return render(request, './musician_app/edit_musician.html', context)
 
 
 def delete_musician(request, musician_id):

@@ -9,37 +9,35 @@
 	<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size: 20px; font-family: "Times New Roman", serif;'>with upcoming release dates and Infos ...</span></strong></p>
 	<br><br>
 
-	<table class="table">
+	<table class="table table-hover table-responsive">
 		<thead>
 		<tr>
-			<th scope="col">ID</th>
-			<th scope="col">Musicians Name</th>
-			<th scope="col">Email</th>
-			<th scope="col">Album Name</th>
-			<th scope="col">Instrument Type</th>
-			<th scope="col">Release Date</th>
-			<th scope="col">Album Rating</th>
-			<th scope="col">Actions</th>
+			<th scope="col"><h5 style="color: #055D7A">ID</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Musician</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Email</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Album</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Instruments</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Release Date</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Album Rating</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Actions</h5></th>
 		</tr>
 		</thead>
-		<tbody>
+		<tbody class="table-group-divider" style="color: #055D7A">
 
 		{% for each in albums %}
 
 			<tr>
 				<th scope="row">{{ each.id }}</th>
 				<td><a href="{% url 'edit_musician' each.musician.id %}">{{ each.musician }}</a></td>
-				<td>{{ each.musician.email }}</td>
+				<td><small>{{ each.musician.email }}</small></td>
 				<td>{{ each.name }}</td>
-
 				<td>
 					{% for i in each.musician.instrument_type.all %}
-						<small>{{ i.name }},</small>
+						<small>{{ i.name }}</small><br>
 					{% endfor %}
 				</td>
-
 				<td>{{ each.release_date }}</td>
-				<td>{{ each.rating }}</td>
+				<td style="color: #ffa534">{{ each.rating }}</td>
 				<td>
 					<a href="{% url 'edit_album' each.id %}"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
 					<a href="{% url 'delete_album' each.id %}"><button type="button" class="btn btn-danger btn-sm">Delete</button></a>
